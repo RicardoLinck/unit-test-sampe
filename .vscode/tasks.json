@@ -26,6 +26,26 @@
             "presentation": {
                 "reveal": "always"
             },
+        },
+        {
+            "label": "run sonarqube server",
+            "command": "docker",
+            "type": "shell",
+            "args": [
+                "run",
+                "-d",
+                "--name",
+                "sonarqube",
+                "-p",
+                "9000:9000",
+                "-p",
+                "9092:9092",
+                "sonarqube",
+            ],
+            "group": "none",
+            "presentation": {
+                "reveal": "always"
+            },
         }
     ]
 }

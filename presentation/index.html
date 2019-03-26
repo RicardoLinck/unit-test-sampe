@@ -1,49 +1,136 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+	<title>Unit Testing</title>
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="
+	 stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Unit testing</h1>
+				<h3>Test coverage + Refactoring</h3>
+			</section>
+			<section>
+				<section>
+					<h2>Unit testing</h2>
+					<blockquote cite="http://softwaretestingfundamentals.com/unit-testing/">"Unit testing is a level of software
+						testing where individual units/ components of a software are tested. The
+						purpose is to validate that each unit of the software performs as designed."</blockquote>
+					<a href="http://softwaretestingfundamentals.com/unit-testing/">http://softwaretestingfundamentals.com/unit-testing/</a>
+				</section>
+				<section>
+					<q>Unit testing is a piece of code that you write in order to test another piece of code.</q>
+					<p class="fragment"> - Ricardo Linck.</p>
+				</section>
+			</section>
+			<section>
+				<h2>Infrastructure</h2>
+				<p>Most languages have frameworks to create and run unit tests.</p>
+				<p>You need to learn the specifics of the framework you are going to use.</p>
+			</section>
+			<section>
+				<h2>Unit test structure</h2>
+				<p>Usually the system you are going to test is called <b>System under test (sut)</b>.</p>
+				<ol>
+					<li><b>A</b>rrange - Initialises objects and set values for the test</li>
+					<li><b>A</b>ct - invokes the sut method with arranged parameters</li>
+					<li><b>A</b>ssert - verifies that the results from the action with arranged parameters are the expected ones</li>
+				</ol>
+			</section>
+			<section>
+				<h2>Pros</h2>
+				<ul>
+					<li>Small</li>
+					<li>Fast</li>
+					<li>Independent</li>
+					<li>Repeatable</li>
+					<li>Easy to run</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Cons</h2>
+				<ul>
+					<li>Takes take get used to them</li>
+					<li>Takes time to write them (not much though)</li>
+					<li>Bad unit tests is worse than no unit tests</li>
+				</ul>
+			</section>
+			<section>
+				<section>
+					<h2>Sample Class</h2>
+				</section>
+				<section>
+					<img src="img/sample-class.png" alt="sample class">
+				</section>
+				<section>
+					<h2>Sample Test Class</h2>
+				</section>
+				<section>
+					<img src="img/sample-test-class.png" alt="sample test class">
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>Code coverage</h2>
+					<blockquote cite="https://en.wikipedia.org/wiki/Cyclomatic_complexity">It is a quantitative measure of the number
+						of linearly independent paths through a program's source code</blockquote>
+					<a href="https://en.wikipedia.org/wiki/Cyclomatic_complexity">https://en.wikipedia.org/wiki/Cyclomatic_complexity</a>
+				</section>
+				<section>
+					<q>I agree with that one, it's pretty clear.</q>
+					<p class="fragment"> - Ricardo Linck.</p>
+				</section>
+				<section>
+					<h3>Sample Class - Path 1</h3>
+					<img src="img/cyclomatic-complexity-1.png" alt="cyclomatic complexity path 1">
+				</section>
+				<section>
+					<h3>Sample Class - Path 2</h3>
+					<img src="img/cyclomatic-complexity-2.png" alt="cyclomatic complexity path 2">
+				</section>
+			</section>
 		</div>
+	</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
 </html>

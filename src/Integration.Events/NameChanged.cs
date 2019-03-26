@@ -15,7 +15,7 @@ namespace Sample.Integration.Events
             }
 
             EventId = eventId;
-            Name = Name;
+            Name = name;
         }
     }
 }
