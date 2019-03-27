@@ -8,7 +8,7 @@
 	<title>Unit Testing</title>
 
 	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/black.css">
+	<link rel="stylesheet" href="css/theme/solarized.css">
 
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="
@@ -34,10 +34,12 @@
 			<section>
 				<section>
 					<h2>Unit testing</h2>
-					<blockquote cite="http://softwaretestingfundamentals.com/unit-testing/">"Unit testing is a level of software
+					<blockquote cite="http://softwaretestingfundamentals.com/unit-testing/">"Unit testing is a level of
+						software
 						testing where individual units/ components of a software are tested. The
 						purpose is to validate that each unit of the software performs as designed."</blockquote>
-					<a href="http://softwaretestingfundamentals.com/unit-testing/">http://softwaretestingfundamentals.com/unit-testing/</a>
+					<a
+						href="http://softwaretestingfundamentals.com/unit-testing/">http://softwaretestingfundamentals.com/unit-testing/</a>
 				</section>
 				<section>
 					<q>Unit testing is a piece of code that you write in order to test another piece of code.</q>
@@ -53,27 +55,47 @@
 				<h2>Unit test structure</h2>
 				<p>Usually the system you are going to test is called <b>System under test (sut)</b>.</p>
 				<ol>
-					<li><b>A</b>rrange - Initialises objects and set values for the test</li>
-					<li><b>A</b>ct - invokes the sut method with arranged parameters</li>
-					<li><b>A</b>ssert - verifies that the results from the action with arranged parameters are the expected ones</li>
+					<li class="fragment"><b>A</b>rrange - Initialises objects and set values for the test</li>
+					<li class="fragment"><b>A</b>ct - invokes the sut method with arranged parameters</li>
+					<li class="fragment"><b>A</b>ssert - verifies that the results from the action with arranged parameters are the
+						expected ones</li>
 				</ol>
+			</section>
+			<section>
+				<h2>A good unit test should be:</h2>
+				<ul>
+					<li class="fragment">Small</li>
+					<li class="fragment">Fast</li>
+					<li class="fragment">Independent</li>
+					<li class="fragment">Repeatable</li>
+				</ul>
 			</section>
 			<section>
 				<h2>Pros</h2>
 				<ul>
-					<li>Small</li>
-					<li>Fast</li>
-					<li>Independent</li>
-					<li>Repeatable</li>
-					<li>Easy to run</li>
+					<li class="fragment">Feedback loop is really small</li>
+					<li class="fragment">Easy to spot where things are broken and side effects on changes</li>
+					<li class="fragment">Easy to run</li>
+					<li class="fragment">Builds confidence when adding new features</li>
+					<li class="fragment">Builds confidence when refactoring</li>
+					<li class="fragment">Reduced debbuging time (0 time in some cases)</li>
 				</ul>
 			</section>
 			<section>
 				<h2>Cons</h2>
 				<ul>
-					<li>Takes take get used to them</li>
-					<li>Takes time to write them (not much though)</li>
-					<li>Bad unit tests is worse than no unit tests</li>
+					<li class="fragment">Takes take get used to them</li>
+					<li class="fragment">Takes time to write them (not much though)</li>
+					<li class="fragment">Bad unit tests is worse than no unit tests</li>
+					<li class="fragment">You need to have a good design in order to unit test it (SRP at least)</li>
+				</ul>
+			</section>
+			<section>
+				<h2>More insights</h2>
+				<ul>
+					<li class="fragment">You won't find bugs in all unit tests</li>
+					<li class="fragment">Definitely the ones you find you'll thank finding them :)</li>
+					<li class="fragment">Even if you don't find direct bugs, it will help with the confidence when refactoring</li>
 				</ul>
 			</section>
 			<section>
@@ -94,9 +116,11 @@
 			<section>
 				<section>
 					<h2>Code coverage</h2>
-					<blockquote cite="https://en.wikipedia.org/wiki/Cyclomatic_complexity">It is a quantitative measure of the number
+					<blockquote cite="https://en.wikipedia.org/wiki/Cyclomatic_complexity">It is a quantitative measure
+						of the number
 						of linearly independent paths through a program's source code</blockquote>
-					<a href="https://en.wikipedia.org/wiki/Cyclomatic_complexity">https://en.wikipedia.org/wiki/Cyclomatic_complexity</a>
+					<a
+						href="https://en.wikipedia.org/wiki/Cyclomatic_complexity">https://en.wikipedia.org/wiki/Cyclomatic_complexity</a>
 				</section>
 				<section>
 					<q>I agree with that one, it's pretty clear.</q>
@@ -110,6 +134,28 @@
 					<h3>Sample Class - Path 2</h3>
 					<img src="img/cyclomatic-complexity-2.png" alt="cyclomatic complexity path 2">
 				</section>
+				<section>
+					<h2>Live demo!</h2>
+				</section>
+			</section>
+			<section>
+				<h2>How to get started</h2>
+				<ol>
+					<li class="fragment">Learn the infrastructure</li>
+					<li class="fragment">Start with small and isolated classes (mappers, utils, etc)</li>
+					<li class="fragment">Refactoring!</li>
+				</ol>
+			</section>
+			<section>
+				<h2>Refactoring</h2>
+			</section>
+			<section>
+				<h2>Next session's topics:</h2>
+				<ol>
+					<li class="fragment">Mocking dependencies</li>
+					<li class="fragment">CI/CD</li>
+					<li class="fragment">Improving the old stack with Integration Testing first</li>
+				</ol>
 			</section>
 		</div>
 	</div>
