@@ -8,7 +8,7 @@
 	<title>Unit Testing</title>
 
 	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/solarized.css">
+	<link rel="stylesheet" href="css/theme/white.css">
 
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="
@@ -42,7 +42,7 @@
 						href="http://softwaretestingfundamentals.com/unit-testing/">http://softwaretestingfundamentals.com/unit-testing/</a>
 				</section>
 				<section>
-					<p><img  src="img/code_testCode.png" alt="Code and Test Code"></p>
+					<p><img src="img/code_testCode.png" alt="Code and Test Code"></p>
 					<q>Unit testing is a piece of code that you write in order to test another piece of code.</q>
 					<p class="fragment"> - Ricardo Linck.</p>
 				</section>
@@ -119,22 +119,22 @@
 				</section>
 				<section>
 					<h2>Testing pyramid</h2>
-					<img src="img/testing-pyramid.png" alt="Testing pyramid" style="width: 60%;">		
+					<img src="img/testing-pyramid.png" alt="Testing pyramid" style="width: 60%;">
 				</section>
 				<section>
 					<h2>Unit Test</h2>
 					<blockquote>Test a unit of the app without its <b>external dependencies</b></blockquote>
-					Imagen	
+					Imagen
 				</section>
 				<section>
 					<h2>Integration Test</h2>
 					<blockquote>Test the app with its <b>external dependencies</b></blockquote>
-					Imagen	
+					Imagen
 				</section>
 				<section>
 					<h2>End-to-end Test</h2>
 					<blockquote>Test the app through the UI</blockquote>
-					Imagen	
+					Imagen
 				</section>
 			</section>
 			<section>
@@ -142,14 +142,53 @@
 					<h2>Sample Class</h2>
 				</section>
 				<section>
-					<img src="img/sample-class.png" alt="sample class">
+					<pre><code class="hljs cs" data-trim>public class NameChanged
+{
+  public Guid EventId { get; }
+  public string Name { get; }
+
+  public NameChanged(Guid eventId, string name)
+  {
+    if (string.IsNullOrWhiteSpace(name))
+    {
+	  throw new ArgumentException("Name can't be empty.",
+	   nameof(name));
+    }
+
+    EventId = eventId;
+    Name = name;
+  }
+}</code></pre>
 				</section>
 				<section>
 					<h2>Sample Test Class</h2>
 				</section>
-				<section>
-					<img src="img/sample-test-class.png" alt="sample test class">
-				</section>
+<section>
+	<pre><code class="hljs cs">public class NameChangedTests 
+{
+  [Test]
+  public void NullNameThrowsArgumentException() {
+    // Arrange & Act & Assert
+	Assert.That(() => new NameChanged(Guid.NewGuid(), null),
+	 Throws.ArgumentException);
+  }
+  
+  [Test]
+  public void NotNullNameDoesNotThrowArgumentException() {
+    // Arrange 
+    var id = Guid.NewGuid();
+    var name = "Any Name";
+  
+    // Act
+    var sut = new NameChanged(id, name);
+    var sutName = sut.Name;
+  
+    // Assert
+    Assert.AreEqual(id, sut.EventId);
+    Assert.AreEqual(name,sut.Name);
+  }
+}</code></pre>
+</section>
 			</section>
 
 			<section>
@@ -167,12 +206,32 @@
 				</section>
 				<section>
 					<h3>Sample Class - Path 1</h3>
-					<img src="img/cyclomatic-complexity-1.png" alt="cyclomatic complexity path 1">
+					<pre><code class="hljs cs" data-line-numbers="3-6">public NameChanged(Guid eventId, string name)
+{
+  if (string.IsNullOrWhiteSpace(name))
+  {
+    throw new ArgumentException("Name can't be empty.",
+      nameof(name));
+  }
+
+  EventId = eventId;
+  Name = name;
+}</code></pre>
 				</section>
 				<section>
-					<h3>Sample Class - Path 2</h3>
-					<img src="img/cyclomatic-complexity-2.png" alt="cyclomatic complexity path 2">
-				</section>
+						<h3>Sample Class - Path 2</h3>
+						<pre><code class="hljs cs" data-line-numbers="3,7-11">public NameChanged(Guid eventId, string name)
+{
+  if (string.IsNullOrWhiteSpace(name))
+  {
+    throw new ArgumentException("Name can't be empty.",
+      nameof(name));
+  }
+
+  EventId = eventId;
+  Name = name;
+}</code></pre>
+					</section>
 				<section>
 					<h2>Live demo!</h2>
 				</section>
