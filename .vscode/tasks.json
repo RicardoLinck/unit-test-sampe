@@ -19,6 +19,7 @@
             "type": "shell",
             "args": [
                 "test",
+                "tests/unit/Integration.Events.Tests",
                 "/p:CollectCoverage=true",
                 "/p:Exclude=[*.Tests]*"
             ],
